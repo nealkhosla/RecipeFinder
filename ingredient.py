@@ -137,6 +137,10 @@ class Mussel(Mollusc):
 	def __init__(self):
 		self.name = "Mussel"
 
+class Clam(Mollusc):
+	def __init__(self):
+		self.name = "Clam"
+
 class Octopus(Mollusc):
 	def __init__(self):
 		self.name = "Octopus"
