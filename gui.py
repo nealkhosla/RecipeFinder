@@ -2,6 +2,7 @@ from easygui import *
 import lookup
 import diet
 import pickle
+import string
 import unicodedata
 
 diets = {"Vegan":diet.VeganDiet,
@@ -35,6 +36,8 @@ for recipe in recipes:
 	(name, ingredients, url) = recipes[recipe]
 	for ingredient in ingredients:
 		ingredient = unicodedata.normalize('NFC', ingredient).encode('ascii','ignore')
+		exclude = set(string.punctuation)
+		ingredient = ''.join(ch for ch in ingredient if ch not in exclude)
 		if ingredient.find(search_term) != -1:
 			found = True
 		for word in ingredient.split():
