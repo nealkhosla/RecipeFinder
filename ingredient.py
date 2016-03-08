@@ -27,7 +27,6 @@ class Fruit(Ingredient):
 	def __init__(self):
 		self.name = "Fruit"
 
-
 # Meat Subclasses
 class Poultry(Meat):
 	def __init__(self):

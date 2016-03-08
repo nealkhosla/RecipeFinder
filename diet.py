@@ -102,6 +102,6 @@ class GlutenFreeDiet(NonVegetarianDiet):
 
 glFreeVegeDiet = GlutenFreeDiet("veganD", [ingredient.Meat])
 
-print glFreeVegeDiet.getClassDisallowedList()
-print glFreeVegeDiet.getFullDisallowedList()
+# print glFreeVegeDiet.getClassDisallowedList()
+# print glFreeVegeDiet.getFullDisallowedList()
 
