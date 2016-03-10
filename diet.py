@@ -66,15 +66,6 @@ class LactoOvoDiet(VegetarianDiet):
 	def getFullDisallowedList(self):
 		return self.instanceDisallowedList + LactoOvoDiet.getClassDisallowedList()
 
-class FruitarianDiet(VegetarianDiet):
-	@staticmethod
-	def getClassDisallowedList():
-		return [ingredient.Lacto, ingredient.Ovo, ingredient.Vegetable] + VegetarianDiet.getClassDisallowedList()
-
-	def getFullDisallowedList(self):
-		return self.instanceDisallowedList + FruitarianDiet.getClassDisallowedList()
-
-
 # NonVegetarianDiet subclasses
 class LactoseIntolDiet(NonVegetarianDiet):
 	@staticmethod
