@@ -19,17 +19,37 @@ def parse_json(json_file):
         # key: id
         # value: (name, ingredients, url)
         recipes = {}
+        palindrome_count = 0
+        empty_count = 0
         
         for line in f:
             json_line = loads(line)
             recipe_id = json_line['_id']['$oid']
             name = json_line['name']
             ingredients = json_line['ingredients'].split('\n')
+
+            # check for empty list of ingredients
+            # check for palindromes in ingredients
+            skip = False
+            total_length = 0
+            for ingr_str in ingredients:
+                total_length += len(ingr_str)
+                if ingr_str == ingr_str[::-1]:
+                    skip = True
+            if total_length == 0:
+                empty_count += 1
+                continue
+            if skip:
+                palindrome_count += 1
+                continue
+
             url = json_line['url']
 
             recipes[recipe_id] = (name, ingredients, url)
 
         pickle.dump(recipes,open("recipes.p", "wb"))
+        print "palindrome count: ", palindrome_count
+        print "empty_count: ", empty_count
         #recipes = pickle.load(open("recipes.p", "rb"))
             
 
