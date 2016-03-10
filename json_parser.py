@@ -1,6 +1,7 @@
 import sys
 from json import loads
 import cPickle as pickle
+import math
 
 
 """
@@ -34,7 +35,11 @@ def parse_json(json_file):
             total_length = 0
             for ingr_str in ingredients:
                 total_length += len(ingr_str)
-                if ingr_str == ingr_str[::-1]:
+
+                front_half = ingr_str[:len(ingr_str) // 2]
+                back_half = ingr_str[int(math.ceil(len(ingr_str) / 2)) + 1:]
+
+                if front_half == back_half:
                     skip = True
             if total_length == 0:
                 empty_count += 1

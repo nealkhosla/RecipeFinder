@@ -30,8 +30,8 @@ results = []
 for recipe in recipes:
 	to_add = True
 	found = False
-	# if len(results) == 10:
-	# 	break
+	if len(results) == 10:
+		break
 	(name, ingredients, url) = recipes[recipe]
 	for ingredient in ingredients:
 		ingredient = unicodedata.normalize('NFC', ingredient).encode('ascii','ignore')
@@ -53,7 +53,7 @@ for recipe in recipes:
 		results.append(recipes[recipe])
 
 print choice + ": " + str(len(results))
-# for result in results:
-# 	print result[0]
-# 	print result[1]
-# 	print "\n\n\n"
+for result in results:
+	print result[0]
+	print result[1]
+	print "\n\n\n"
